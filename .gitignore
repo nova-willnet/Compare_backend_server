@@ -1,0 +1,6 @@
+node_modules/
+.env
+.streamlit/
+app_streamlit.py
+app_streamlit_timeseries.py
+
