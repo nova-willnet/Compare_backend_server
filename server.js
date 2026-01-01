@@ -158,7 +158,9 @@ app.post('/api/compare', upload.fields([
     const beforePath = req.files.beforeFile[0].path;
     const afterPath = req.files.afterFile[0].path;
 
-    const pythonExec = process.env.PYTHON_PATH || 'python3';
+    // Prefer an explicit PYTHON_PATH if provided; otherwise pick a sensible default
+    // 'python3' is common on Linux, while 'python' may be the default on Windows.
+    const pythonExec = process.env.PYTHON_PATH || (process.platform === 'win32' ? 'python' : 'python3');
     const py = spawn(pythonExec, [path.join(__dirname, 'compare.py'), beforePath, afterPath]);
 
     let stdout = '';

@@ -1,6 +1,11 @@
+# Node / Backend
 node_modules/
 .env
+tmp/
+
+# Streamlit (do not push UI apps in backend repo)
 .streamlit/
 app_streamlit.py
 app_streamlit_timeseries.py
+
 
